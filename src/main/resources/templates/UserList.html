@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>信息表</h1>
+    <br>
+    <a href="user/addz">添加</a>
+    <br>
+    <table>
+        <tr>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>生日</td>
+            <td>操作</td>
+        </tr>
+
+        <tr th:each="user:${userList}">
+            <td th:text="${user.id}" id="ida"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.sex}"></td>
+            <td th:text="${#dates.format(user.date ,'yyyy-MM-dd')}"></td>
+            <td>
+                <a th:href="@{'/user/delete?id='+${user.id}}">删除</a>
+                <a th:href="@{'/user/findByid?id='+${user.id}}">修改</a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

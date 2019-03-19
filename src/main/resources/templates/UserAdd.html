@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="user/add" method="post">
+        姓名：<input type="text" name="name"><br>
+        性别：
+        <input type="radio" name="sex" value="男">男&nbsp;
+        <input type="radio" name="sex" value="女">女&nbsp;
+        <br>
+        生日：<input type="text" name="date"><br>
+        <input type="submit" value="保存">
+    </form>
+</body>
+</html>
